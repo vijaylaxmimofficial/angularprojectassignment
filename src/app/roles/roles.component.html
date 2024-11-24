@@ -1,0 +1,67 @@
+<div class="container">
+  <h2 style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: xx-large; font-family: 'Times New Roman', Times, serif; color: rgb(13, 13, 76); font-weight: 600;">Role Management</h2>
+
+ 
+  <div class="add-role">
+    <input type="text" [(ngModel)]="newRole" placeholder="Enter role (e.g., Admin)" />
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="newPermissions.read" /> Read
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="newPermissions.write" /> Write
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="newPermissions.delete" /> Delete
+      </label>
+    </div>
+    <button (click)="addRole()">Add Role</button>
+  </div>
+
+  <hr />
+
+  <table class="role-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Role</th>
+        <th>Permissions</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td *ngIf="editIndex !== i">{{ role.name }}</td>
+        <td *ngIf="editIndex === i">
+          <input type="text" [(ngModel)]="editRoleValue" />
+        </td>
+        <td>
+          <span *ngIf="editIndex !== i">
+            {{ role.permissions.read ? 'Read ' : '' }}
+            {{ role.permissions.write ? 'Write ' : '' }}
+            {{ role.permissions.delete ? 'Delete ' : '' }}
+          </span>
+          <span *ngIf="editIndex === i">
+            <label>
+              <input type="checkbox" [(ngModel)]="editPermissions.read" /> Read
+            </label>
+            <label>
+              <input type="checkbox" [(ngModel)]="editPermissions.write" /> Write
+            </label>
+           
+            <label>
+              <input type="checkbox" [(ngModel)]="editPermissions.delete" /> Delete
+            </label>
+          </span>
+        </td>
+        <td>
+          <button *ngIf="editIndex !== i" (click)="editRole(i)">Edit</button>
+          <button *ngIf="editIndex === i" (click)="saveEditRole(i)">Save</button>
+          <button (click)="deleteRole(i)" style="background-color: red; color: white;">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

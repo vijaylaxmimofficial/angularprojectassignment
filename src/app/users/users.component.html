@@ -1,0 +1,97 @@
+<div style="padding: 20px;">
+  <h2 style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: xx-large; font-family: 'Times New Roman', Times, serif; color: rgb(13, 13, 76); font-weight: 600;">User Management</h2>
+
+ 
+   
+    <button *ngIf="!isAddingUser && !editingUserId" mat-raised-button color="primary" (click)="isAddingUser = true">
+      Add User
+    </button>
+  
+  
+
+  <div *ngIf="isAddingUser" style="margin-top: 20px;">
+    <mat-form-field appearance="outline" style="width: 200px; margin-right: 10px;">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="newUser.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 300px; margin-right: 10px;">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="newUser.email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 200px;">
+      <mat-label>Role</mat-label>
+      <input matInput [(ngModel)]="newUser.role" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 200px;">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="newUser.status">
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addUser()">Save</button>
+    <button mat-button color="warn" (click)="isAddingUser = false">Cancel</button>
+  </div>
+
+  
+  <div *ngIf="editingUserId" style="margin-top: 20px;">
+    <mat-form-field appearance="outline" style="width: 200px; margin-right: 10px;">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="editUserData.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 300px; margin-right: 10px;">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="editUserData.email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 200px;">
+      <mat-label>Role</mat-label>
+      <input matInput [(ngModel)]="editUserData.role" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 200px;">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="editUserData.status">
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveEditUser()">Save</button>
+    <button mat-button color="warn" (click)="cancelEditUser()">Cancel</button>
+  </div>
+
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%; margin-top: 20px;">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> Role </th>
+      <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let user">{{ user.status }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-button color="primary" (click)="startEditUser(user)">Edit</button>
+        <button mat-button color="warn" (click)="deleteUser(user.id)">Delete</button>
+        <button mat-button color="accent" (click)="toggleStatus(user)">
+          {{ user.status === 'Active' ? 'Deactivate' : 'Activate' }}
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

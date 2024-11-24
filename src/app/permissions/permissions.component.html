@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: xx-large; font-family: 'Times New Roman', Times, serif; color: rgb(13, 13, 76); font-weight: 600;">Permission Management</h2>
+
+ 
+  <div class="add-permission">
+    <input type="text" [(ngModel)]="newPermission" placeholder="Enter permission (e.g., Read)" />
+    <button (click)="addPermission()">Add</button>
+  </div>
+
+  <hr />
+
+  
+  <table class="permission-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Permission</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let permission of permissions; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td *ngIf="editIndex !== i">{{ permission }}</td>
+        <td *ngIf="editIndex === i">
+          <input type="text" [(ngModel)]="editPermissionValue" />
+        </td>
+        <td>
+          <button *ngIf="editIndex !== i" (click)="editPermission(i)">Edit</button>
+          <button *ngIf="editIndex === i" (click)="saveEditPermission(i)">Save</button>
+          <button (click)="deletePermission(i)" style="background-color: red;">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,140 @@
+
+.container {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-role {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-role input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-role div {
+  display: flex;
+  gap: 10px;
+}
+
+.add-role label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.add-role button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-role button:hover {
+  background-color: #45a049;
+}
+
+
+.role-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.role-table th,
+.role-table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.role-table th {
+  background-color: #1976d2;
+  color: white;
+  font-weight: bold;
+}
+
+.role-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.role-table tr:hover {
+  background-color: #ddd;
+}
+
+
+button {
+  padding: 6px 12px;
+  margin-left: 5%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:first-child {
+  background-color: #2196f3;
+  color: white;
+}
+
+button:first-child:hover {
+  background-color: #1769aa;
+}
+
+button:nth-child(2) {
+  background-color: #4caf50;
+  color: white;
+}
+
+button:nth-child(2):hover {
+  background-color: #388e3c;
+}
+
+button:nth-child(3) {
+  background-color: #f44336;
+  color: white;
+}
+
+button:nth-child(3):hover {
+  background-color: #d32f2f;
+}
+
+
+@media screen and (max-width: 600px) {
+  .add-role {
+    flex-direction: column;
+  }
+
+  .role-table {
+    font-size: 0.9em;
+  }
+
+  .add-role input[type="text"] {
+    width: 100%;
+  }
+}
