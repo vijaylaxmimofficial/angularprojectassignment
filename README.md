@@ -1,27 +1,54 @@
 # UserRoleManagement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+Angular User-Role Management Project
+This project implements a comprehensive user and role management system using Angular. It includes features for user management, role management, dynamic permissions, and optional API simulation.
 
-## Development server
+Features
+1. User Management
+Add, edit, delete users.
+Assign roles to users.
+Manage user statuses (e.g., Active/Inactive).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+2. Role Management
+Define and edit roles.
+Assign permissions or custom attributes to roles.
 
-## Code scaffolding
+3. Dynamic Permissions
+Assign or modify permissions for roles dynamically.
+Clear and intuitive UI for managing permissions.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4. Data Persistence with LocalStorage
+User and role data are stored in localStorage for lightweight persistence.
+Data remains available even after page refreshes.
 
-## Build
+5. Custom API Simulation (Optional)
+Simulated CRUD operations for users and roles using localStorage.
+Mock API responses to validate functionality.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+Prerequisites
+Node.js and npm installed.
+Angular CLI installed globally: npm install -g @angular/cli.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Installation
+Clone the repository:
 
-## Running end-to-end tests
+git clone https://github.com/your-username/angularuser-role-management-project.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navigate to the project directory:
+cd angularuser-role-management-project
 
-## Further help
+Install dependencies:
+npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Running the Project
+ng serve
+
+Open your browser and navigate to:
+http://localhost:4200
+
+
+Contact
+For any queries or suggestions, please reach out at:
+
+Email: vijaylaxmimetege@gmail.com
