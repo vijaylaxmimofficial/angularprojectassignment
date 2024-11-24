@@ -32,11 +32,10 @@ Angular CLI installed globally: npm install -g @angular/cli.
 
 Installation
 Clone the repository:
-
-git clone https://github.com/your-username/angularuser-role-management-project.git
+git clone https://github.com/vijaylaxmimofficial/angularprojectassignment.git
 
 Navigate to the project directory:
-cd angularuser-role-management-project
+cd angularprojectassignment
 
 Install dependencies:
 npm install
